@@ -43,3 +43,17 @@ Angka volume adalah hasil geometri komponen rancangan per unit. Angka belum menc
 **Keputusan satuan untuk simulasi:** BoM memakai m³ agar kebutuhan kayu bisa dihitung dari dimensi. Sebelum PO dapat mengalir ke MO secara konsisten, tim harus menetapkan isi pack berdasarkan pengukuran atau memakai konversi simulasi yang dinyatakan terbuka. Jika harus memakai asumsi sementara, gunakan **1 pack = 0,05 m³** hanya sebagai parameter demonstrasi, beri label asumsi di master data, dan ganti dengan hasil ukur sebelum menyimpulkan efisiensi atau biaya aktual. Jangan menyajikan konversi ini sebagai fakta perusahaan.
 
 Operasi manufaktur yang diusulkan: pemotongan → penyerutan → perakitan → pengamplasan → finishing. Waktu baku tiap operasi belum diketahui dan tidak diperlukan untuk klaim kapasitas aktual.
+
+## 3. Siklus yang diimplementasikan (PO -> MO -> SO, nomor dokumen) 
+
+## 4. Analitik: daftar VIEW skema lapor dan dashboard 
+
+## 5. Cara menjalankan ulang 
+   - restore dump: pg_restore -d <db> proyek.backup 
+   - kredensial uji dan port 
+
+## 6. Pembagian peran dan tautan Contributors 
+
+## 7. Batas sistem dan rencana pengembangan 
+
+## 8. Masukan penguji (diisi pasca presentasi) 
