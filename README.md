@@ -120,6 +120,24 @@ Buka workbook Excel saat PostgreSQL berjalan, lalu pilih **Data → Refresh Semu
 
 ## 6. Pembagian peran dan tautan Contributors 
 
-## 7. Batas sistem dan rencana pengembangan 
+## 7. Batas sistem dan rencana pengembangan
+
+### Batas sistem
+
+- Odoo digunakan untuk simulasi akademik; data transaksi di dalamnya bukan catatan operasional terverifikasi milik DNA Kreasindo.
+- Identitas pemasok dan pelanggan pada transaksi Odoo merupakan data simulasi. Nama pemasok pada transaksi, seperti Mitra10 Yogyakarta dan MSM Pallet, belum terverifikasi sebagai pemasok aktual perusahaan.
+- Satuan dan kuantitas BoM Odoo digunakan untuk menjalankan demonstrasi. Konversi pack kayu ke volume serta pemakaian bahan aktual belum diukur. Perhitungan geometri pada bagian 2 merupakan rancangan acuan, bukan hasil pengukuran produk jadi.
+- Nilai persediaan **Rp374.568,43** mengikuti valuasi yang tercatat di Odoo pada saat validasi. Beberapa produk jadi bernilai Rp0 pada laporan tersebut karena biaya produk belum ditetapkan di database; angka ini belum mewakili valuasi ekonomi lengkap seluruh persediaan.
+- Pajak 12% pada transaksi mengikuti konfigurasi simulasi Odoo, termasuk pesanan pelanggan ekspor. Konfigurasi tersebut tidak dimaksudkan sebagai panduan perlakuan pajak ekspor yang sebenarnya.
+- Excel mengambil data dari PostgreSQL saat pengguna menjalankan **Refresh Semua**. Perubahan di Odoo tidak muncul seketika di workbook tanpa penyegaran.
+
+### Rencana pengembangan
+
+1. Verifikasi identitas pemasok dan pelanggan serta satuan pembelian bersama sumber data perusahaan.
+2. Ukur kebutuhan bahan dan kehilangan produksi untuk memperbarui BoM dan konversi satuan.
+3. Lengkapi biaya produk jadi dan metode valuasi agar laporan persediaan mencerminkan nilai produk dengan lebih utuh.
+4. Tinjau konfigurasi pajak dan proses ekspor berdasarkan skenario perusahaan yang sudah diverifikasi.
+5. Pertimbangkan penyegaran data terjadwal setelah kebutuhan dan keamanan koneksi disepakati.
+
 
 ## 8. Masukan penguji (diisi pasca presentasi) 
