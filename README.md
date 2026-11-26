@@ -70,6 +70,28 @@ Kuantitas komponen di atas adalah konfigurasi BoM yang dipakai dalam simulasi Od
 Pajak 12% pada dokumen penjualan mengikuti konfigurasi database simulasi Odoo. Angka tersebut bukan pernyataan mengenai perlakuan pajak ekspor yang sebenarnya.
 
 ## 4. Analitik: daftar VIEW skema lapor dan dashboard 
+### View pada skema `lapor`
+
+| View | Ringkasan |
+|---|---|
+| `lapor.v_pembelian_pemasok` | Nilai pembelian yang dikelompokkan per pemasok; 2 baris hasil |
+| `lapor.v_penjualan_bulanan` | Jumlah pesanan dan nilai penjualan per bulan; 1 baris hasil |
+| `lapor.v_stok` | Saldo stok produk per lokasi; 7 baris hasil |
+| `lapor.v_nilai_persediaan` | Total nilai persediaan untuk perusahaan DNA Kreasindo; 1 baris hasil |
+
+### Dashboard Excel dan validasi
+
+Dashboard menampilkan tiga KPI: total pembelian, total penjualan, dan nilai persediaan. Grafik pembelian per pemasok berbentuk batang horizontal; grafik penjualan per bulan berbentuk kolom.
+
+| Ukuran | Odoo | Excel |
+|---|---:|---:|
+| Total pembelian | Rp456.379,35 | Rp456.379, ditampilkan tanpa desimal |
+| Total penjualan November 2026 | sekitar Rp209,79 ribu | Rp209.790 |
+| Nilai persediaan | Rp374.568,43 | Rp374.568,43 |
+
+Nilai penjualan dan persediaan cocok dengan laporan Odoo. Selisih tampilan pembelian terjadi karena KPI Excel tidak menampilkan angka desimal.
+
+Data Excel diperbarui dengan memilih **Data → Refresh Semua**. Pembaruan dilakukan saat diminta; Excel tidak menerima perubahan Odoo secara otomatis saat transaksi disimpan.
 
 ## 5. Cara menjalankan ulang 
    - restore dump: pg_restore -d <db> proyek.backup 
