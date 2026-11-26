@@ -94,8 +94,29 @@ Nilai penjualan dan persediaan cocok dengan laporan Odoo. Selisih tampilan pembe
 Data Excel diperbarui dengan memilih **Data → Refresh Semua**. Pembaruan dilakukan saat diminta; Excel tidak menerima perubahan Odoo secara otomatis saat transaksi disimpan.
 
 ## 5. Cara menjalankan ulang 
-   - restore dump: pg_restore -d <db> proyek.backup 
-   - kredensial uji dan port 
+### Prasyarat
+
+- PostgreSQL 17 dan Odoo 18 berjalan pada komputer lokal.
+- Excel 64-bit dengan konektor PostgreSQL yang sudah terpasang.
+- Database proyek: `dna_kreasindo`; host PostgreSQL: `127.0.0.1`; port: `5432`.
+
+### Memulihkan database
+
+Siapkan database tujuan yang kosong, lalu pulihkan dump PostgreSQL custom-format:
+
+```bash
+pg_restore -h 127.0.0.1 -p 5432 -U <username_postgres> -d dna_kreasindo dna_kreasindo.backup
+```
+
+Ganti `<username_postgres>` dengan nama pengguna PostgreSQL yang tersedia. Masukkan kata sandi saat diminta; jangan menuliskan kata sandi ke README atau repositori.
+
+Dump `.backup` PostgreSQL berisi database. Backup ZIP dari Database Manager Odoo disimpan terpisah untuk pemulihan berkas Odoo seperti filestore.
+
+**Status dump custom-format:** belum dibuat; lengkapi nama dan lokasi berkas setelah `dna_kreasindo.backup` tersedia.
+
+### Menyegarkan dashboard
+
+Buka workbook Excel saat PostgreSQL berjalan, lalu pilih **Data → Refresh Semua**. Excel mengambil data dari view pada skema `lapor` di database `dna_kreasindo`. Kredensial koneksi disimpan secara lokal dan tidak dicantumkan di README.
 
 ## 6. Pembagian peran dan tautan Contributors 
 
