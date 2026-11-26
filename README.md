@@ -45,6 +45,29 @@ Angka volume adalah hasil geometri komponen rancangan per unit. Angka belum menc
 Operasi manufaktur yang diusulkan: pemotongan → penyerutan → perakitan → pengamplasan → finishing. Waktu baku tiap operasi belum diketahui dan tidak diperlukan untuk klaim kapasitas aktual.
 
 ## 3. Siklus yang diimplementasikan (PO -> MO -> SO, nomor dokumen) 
+### 3.1 Pembelian dan penerimaan
+
+Pada 26 November 2026, PO `P00009` dibuat kepada Mitra10 Yogyakarta untuk Lem Kayu 1 kg, Amplas Kayu 2 m, dan Bahan Finishing Kayu 1 L. Total pesanan termasuk pajak adalah **Rp154.210,71**. Penerimaan `DNA/IN/00003` berstatus **Selesai** dan mencatat barang sesuai kuantitas pesanan.
+
+### 3.2 Manufaktur
+
+Dua Manufacturing Order diselesaikan pada 26 November 2026. Masing-masing menghasilkan satu unit produk.
+
+| Dokumen | Produk jadi | Komponen yang dikonsumsi |
+|---|---|---|
+| `DNA/MO/00003` | Rak Toples Kayu | Kayu Jati Belanda Pallet 0,99 L; Lem Kayu 0,03 kg; Sekrup Kayu 8 unit; Bahan Finishing Kayu 0,02 L; Amplas Kayu 0,50 m |
+| `DNA/MO/00004` | Nomor Meja Kayu Custom | Kayu Jati Belanda Pallet 0,21 L; Lem Kayu 0,01 kg; Amplas Kayu 0,20 m; Bahan Finishing Kayu 0,01 L |
+
+Kuantitas komponen di atas adalah konfigurasi BoM yang dipakai dalam simulasi Odoo. Angka tersebut belum diverifikasi sebagai standar pemakaian produksi aktual.
+
+### 3.3 Penjualan dan pengiriman
+
+| Pesanan | Pelanggan simulasi | Produk dan kuantitas | Total termasuk pajak | Pengiriman |
+|---|---|---|---:|---|
+| `S00007` | Pelanggan Domestik | Rak Toples Kayu, 1 unit | Rp94.350,00 | `DNA/OUT/00002` — Selesai |
+| `S00008` | Pelanggan Ekspor (Singapore) | Nomor Meja Kayu Custom, 1 unit | Rp10.545,00 | `DNA/OUT/00003` — Selesai |
+
+Pajak 12% pada dokumen penjualan mengikuti konfigurasi database simulasi Odoo. Angka tersebut bukan pernyataan mengenai perlakuan pajak ekspor yang sebenarnya.
 
 ## 4. Analitik: daftar VIEW skema lapor dan dashboard 
 
